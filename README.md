@@ -16,9 +16,18 @@ Do not use field access (x.myfield) or index (x[0]) operators in the following t
 
 ### Data design
 
-...
+1. Design a JS object representation of tasks akin to Clubhouse tasks
 
 
 ### APIs
 
-...
+Here don't use a database - build the desired data right in the app as JSON objects and operate on them.
+
+1. Using express.js create a test API that provides access to the tasks from Data Design.1 and allows to:
+    - get all tasks
+    - get a specific task by its id
+    - get all tasks that belong to an epic with a particular id
+    - get all tasks that are in a particular status
+    - get all tasks that are in one of several allowed statuses
+    - get tasks filtered simultaneously by status and epic
+2. Ensure your API has only two distinct routes (for one task and for many tasks)
