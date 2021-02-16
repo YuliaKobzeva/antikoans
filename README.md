@@ -4,6 +4,8 @@
 
 Do not use field access (x.myfield) or index (x[0]) operators in the following tasks.
 
+Every task must be accompanied by tests.
+
 1. Write a function that given DS_DEEP returns DS_DEEP.things
 2. Write a function that given DS_DEEP returns DS_DEEP.things[2]
 3. Write a function that given DS_DEEP returns [DS_DEEP.things[2], DS_DEEP.things[0]]
