@@ -12,3 +12,13 @@ Do not use field access (x.myfield) or index (x[0]) operators in the following t
 6. Write a function that given DS_DEEP and a string of glued keys returns the value under that sequence of keys. E.g. for the string "mouse.cat.dog" should return { kid: { granma: { ... }}}; for "things.1.c.k2" should return 5.
 7. Write a function 'flatten' that transforms a datastructure like DS_DEEP into a datastructure like DS_FLAT (see ds_flat.js)
 8. Write a function 'flatten_ultra' that transforms a datastructure like DS_DEEP into a datastructure like DS_ULTRA_FLAT (see ds_flat.js)
+
+
+### Data design
+
+...
+
+
+### APIs
+
+...
