@@ -52,4 +52,31 @@ function destr2(obj) {
 
 console.log("task 2:", destr2(DS_DEEP));
 
+//task 3
+
+function destr3(obj) {
+	const { things: [first, second] } = obj;
+	if (second != null && second != undefined) {
+		return [second, first];
+	}
+
+    else {
+        return "no second in this object";
+    }
+}
+
+console.log("task 3:", destr3(DS_DEEP));
+
+//task 4
+
+function destr4(obj) {
+	const { things } = obj;
+	return things.slice(-2, -1)
+}
+
+console.log("task 4:", destr4(DS_DEEP));
+
+
+
+
 
