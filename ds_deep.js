@@ -55,12 +55,10 @@ const DS_DEEP = {
 	},
 };
 
-
 //task 1
 
-function destr1(obj) {
-	const { things } = obj;
-		return things;
+function destr1({ things }) {
+	return things;
 }
 
 console.log("task 1:", destr1(DS_DEEP));
@@ -68,8 +66,8 @@ console.log("task 1:", destr1(DS_DEEP));
 //task 2
 
 function destr2(obj) {
-	const { things: [, second], } = obj;
-		return second;
+	const {	things: [, , third],} = obj;
+	return third;
 }
 
 console.log("task 2:", destr2(DS_DEEP));
@@ -77,9 +75,8 @@ console.log("task 2:", destr2(DS_DEEP));
 //task 3
 
 function destr3(obj) {
-	const {	things: [first, second], } = obj;
-		return [second, first];
-
+	const {	things: [first, , third],} = obj;
+	return [third, first];
 }
 
 console.log("task 3:", destr3(DS_DEEP));
@@ -96,9 +93,9 @@ console.log("task 4:", destr4(DS_DEEP));
 //task 5
 
 function destr5(obj) {
-	const {	things: [, secondObject], } = obj;
-	const { b } = secondObject;
-	return b.splice(1);
+	const {	things: [, secondObject],} = obj;
+	const {	b: [first, ...rest],} = secondObject;
+	return rest;
 }
 
 console.log("task 5:", destr5(DS_DEEP));
@@ -106,9 +103,20 @@ console.log("task 5:", destr5(DS_DEEP));
 //task 6
 
 function destr6(obj, gluedKeys) {
-	const unGluedKeys = gluedKeys.split("."); // ["mouse", "cat", "dog"]
-	const lastElem = unGluedKeys.splice(-1); //["dog"]
-	//искать в объекте ключ lastElem
+
+	const unGluedKeys = gluedKeys.split(".");
+
+	let copyObj = obj;
+
+	for (let i = 0; i < unGluedKeys.length; i++) {
+		for (a in copyObj) {
+			if (a == unGluedKeys[i]) {
+				copyObj = copyObj[a];
+			}
+		}
+	}
+
+	return copyObj;
 }
 
-console.log("task 6:", destr6(DS_DEEP, "mouse.cat.dog"));
+console.log("task 6:", destr6(DS_DEEP, "things.1.c.k2"));
