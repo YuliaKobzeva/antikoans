@@ -66,7 +66,9 @@ console.log("task 1:", destr1(DS_DEEP));
 //task 2
 
 function destr2(obj) {
-	const {	things: [, , third],} = obj;
+	const {
+		things: [, , third],
+	} = obj;
 	return third;
 }
 
@@ -75,7 +77,9 @@ console.log("task 2:", destr2(DS_DEEP));
 //task 3
 
 function destr3(obj) {
-	const {	things: [first, , third],} = obj;
+	const {
+		things: [first, , third],
+	} = obj;
 	return [third, first];
 }
 
@@ -93,8 +97,12 @@ console.log("task 4:", destr4(DS_DEEP));
 //task 5
 
 function destr5(obj) {
-	const {	things: [, secondObject],} = obj;
-	const {	b: [first, ...rest],} = secondObject;
+	const {
+		things: [, secondObject],
+	} = obj;
+	const {
+		b: [first, ...rest],
+	} = secondObject;
 	return rest;
 }
 
@@ -103,17 +111,15 @@ console.log("task 5:", destr5(DS_DEEP));
 //task 6
 
 function destr6(obj, gluedKeys) {
-
 	const unGluedKeys = gluedKeys.split(".");
 
 	let nestedObj = obj;
 
 	for (let i = 0; i < unGluedKeys.length; i++) {
-		for (a in nestedObj) {
-			if (a == unGluedKeys[i]) {
-				nestedObj = nestedObj[a];
-			}
+		if (nestedObj[unGluedKeys[i]] === undefined) {
+			return `key "${unGluedKeys[i]}" is not found`;
 		}
+		nestedObj = nestedObj[unGluedKeys[i]];
 	}
 
 	return nestedObj;
