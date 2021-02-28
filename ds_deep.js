@@ -106,17 +106,17 @@ function destr6(obj, gluedKeys) {
 
 	const unGluedKeys = gluedKeys.split(".");
 
-	let copyObj = obj;
+	let nestedObj = obj;
 
 	for (let i = 0; i < unGluedKeys.length; i++) {
-		for (a in copyObj) {
+		for (a in nestedObj) {
 			if (a == unGluedKeys[i]) {
-				copyObj = copyObj[a];
+				nestedObj = nestedObj[a];
 			}
 		}
 	}
 
-	return copyObj;
+	return nestedObj;
 }
 
-console.log("task 6:", destr6(DS_DEEP, "things.1.c.k2"));
+console.log("task 6:", destr6(DS_DEEP, "mouse.cat.dog"));
